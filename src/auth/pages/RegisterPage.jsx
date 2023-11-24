@@ -1,5 +1,4 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Google } from "@mui/icons-material";
 import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 
@@ -30,13 +29,13 @@ export const RegisterPage = () => {
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12}>
               <Button variant="contained" fullWidth>
-                Login
+                Create
               </Button>
             </Grid>
           </Grid>
           <Grid container direction="row" justifyContent="end">
             <Typography sx={{ mr: 1 }}>Have an account?</Typography>
-            <Link component={RouterLink} color="inherit" to="/auth/register">
+            <Link component={RouterLink} color="inherit" to="/auth/login">
               Login
             </Link>
           </Grid>
