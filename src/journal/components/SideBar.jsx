@@ -1,4 +1,4 @@
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import {
   Box,
   Divider,
@@ -34,7 +34,7 @@ export const SideBar = ({ drawerWidth }) => {
         <Divider />
         <List>
           {["Enero", "Febrero", "Marzo", "Abril"].map((item) => (
-            <ListItem Key={item} disablePadding>
+            <ListItem key={item} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <TurnedInNot />
@@ -55,5 +55,5 @@ export const SideBar = ({ drawerWidth }) => {
 };
 
 SideBar.propTypes = {
-  drawerWidth: PropType.number,
+  drawerWidth: PropTypes.number,
 };
