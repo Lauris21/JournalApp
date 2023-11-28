@@ -16,7 +16,7 @@ export const LoginPage = () => {
 
   const { email, password, onInputChange } = useForm({
     email: "",
-    password: "123456.",
+    password: "",
   });
 
   const isAuthenticating = useMemo(() => status === "checking", [status]);
@@ -27,7 +27,6 @@ export const LoginPage = () => {
   };
 
   const onGoogleSignIn = () => {
-    console.log("google sign in");
     dispatch(startGoogleSignIn());
   };
 
