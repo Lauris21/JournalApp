@@ -6,7 +6,11 @@ import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 
 import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../../hooks";
-import { checkingAuthentication, startGoogleSignIn } from "../../store/auth";
+import {
+  checkingAuthentication,
+  startGoogleSignIn,
+  startLoginUser,
+} from "../../store/auth";
 import { useMemo } from "react";
 
 export const LoginPage = () => {
@@ -14,7 +18,7 @@ export const LoginPage = () => {
 
   const dispatch = useDispatch();
 
-  const { email, password, onInputChange } = useForm({
+  const { formState, email, password, onInputChange } = useForm({
     email: "",
     password: "",
   });
@@ -24,6 +28,7 @@ export const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(checkingAuthentication());
+    dispatch(startLoginUser(formState));
   };
 
   const onGoogleSignIn = () => {
