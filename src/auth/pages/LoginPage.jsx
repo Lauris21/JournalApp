@@ -1,8 +1,16 @@
+import { useMemo } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Google } from "@mui/icons-material";
-import { Button, Grid, Link, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Button,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../../hooks";
@@ -11,10 +19,9 @@ import {
   startGoogleSignIn,
   startLoginUser,
 } from "../../store/auth";
-import { useMemo } from "react";
 
 export const LoginPage = () => {
-  const { status } = useSelector((state) => state.auth);
+  const { status, errorMessage } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -61,6 +68,12 @@ export const LoginPage = () => {
               onChange={onInputChange}
             />
           </Grid>
+
+          {errorMessage && (
+            <Grid item xs={12} sx={{ mt: 3 }}>
+              <Alert severity="error">{errorMessage}</Alert>
+            </Grid>
+          )}
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={12} sm={6}>
               <Button

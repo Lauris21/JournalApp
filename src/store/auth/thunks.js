@@ -50,7 +50,7 @@ export const startLoginUser = ({ email, password }) => {
     });
 
     if (!ok) {
-      dispatch(logout({ errorMessage }));
+      return dispatch(logout({ errorMessage }));
     }
 
     dispatch(login({ uid, photoURL, displayName, email, password }));
